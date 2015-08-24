@@ -1,0 +1,10 @@
+<head>
+  <title>Christian Library</title>
+</head>
+<body>
+  <h1>Welcome to Christian Library</h1>
+  {{> loginButtons}}
+  {{#if currentUser}}
+    {{> mybooks}}
+  {{/if}}
+</body>
