@@ -1,0 +1,10 @@
+<template name="requestedBooks">
+  <h2>Requested Books</h2>
+  <div id="requested-books">
+    <ul>
+      {{#each requestedBooks}}
+      <li>{{bookTitle}} {{bookAuthors}} {{ownerName}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

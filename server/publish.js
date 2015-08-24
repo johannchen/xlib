@@ -1,3 +1,3 @@
 Meteor.publish("mybooks", function() {
-  return MyBooks.find({ownerId: this.userId});
+  return MyBooks.find({$or: [{ownerId: this.userId}, {borrowerId: this.userId}]});
 });

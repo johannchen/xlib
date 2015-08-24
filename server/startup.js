@@ -1,9 +1,11 @@
 Meteor.startup( function() {
   // setup fixtures
   // reset fixtures
+
   Fixtures.flush(Meteor.users);
   Fixtures.flush(MyBooks);
   Fixtures.flush(Books);
+  /**/
   if (Meteor.users.find().count() === 0) {
     // TODO: user fullname
     Fixtures.insert(Meteor.users, 'johann', {
@@ -55,33 +57,45 @@ Meteor.startup( function() {
       var pray = Fixtures.get(Books, 'pray');
 
       api.insert('johannbook1', {
+        ownerId: johann._id,
+        bookId: love._id,
         ownerName: johann.username,
         ownerEmail: johann.email,
-        ownerId: johann._id,
         bookTitle: love.title,
         bookAuthors: love.authors,
-        bookId: love._id,
         createdAt: moment().subtract(1, 'days')
       });
 
       api.insert('johannbook2', {
+        ownerId: johann._id,
+        bookId: bible._id,
         ownerName: johann.username,
         ownerEmail: johann.email,
-        ownerId: johann._id,
         bookTitle: bible.title,
         bookAuthors: bible.authors,
-        bookId: bible._id,
         createdAt: moment()
       });
 
       api.insert('johannbook3', {
+        ownerId: johann._id,
+        bookId: joy._id,
         ownerName: johann.username,
         ownerEmail: johann.email,
-        ownerId: johann._id,
         bookTitle: joy.title,
         bookAuthors: joy.authors,
-        bookId: joy._id,
         createdAt: moment().subtract(2, 'days')
+      });
+
+      api.insert('raymondbook1', {
+        ownerId: raymond._id,
+        bookId: marriage._id,
+        borrowerId: johann._id,
+        ownerName: raymond.username,
+        ownerEmail: raymond.email,
+        bookTitle: marriage.title,
+        bookAuthors: marriage.authors,
+        requestedAt: moment(),
+        createdAt: moment().subtract(1, 'days')
       });
     });
   }
