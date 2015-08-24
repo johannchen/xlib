@@ -18,4 +18,8 @@ describe('My Books', function () {
     expect($('#requested-books ul > li')).toContainText('You and Me Forever');
   });
 
+  it("should diplay johann's borrowed books", function() {
+    expect($('#borrowed-books ul > li')).toContainText('Too busy not to pray');
+  });
+
 });

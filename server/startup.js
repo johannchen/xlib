@@ -2,9 +2,9 @@ Meteor.startup( function() {
   // setup fixtures
   // reset fixtures
 
-  Fixtures.flush(Meteor.users);
   Fixtures.flush(MyBooks);
   Fixtures.flush(Books);
+  Fixtures.flush(Meteor.users);
   /**/
   if (Meteor.users.find().count() === 0) {
     // TODO: user fullname
@@ -85,7 +85,7 @@ Meteor.startup( function() {
         bookAuthors: joy.authors,
         createdAt: moment().subtract(2, 'days')
       });
-
+      // requested books
       api.insert('raymondbook1', {
         ownerId: raymond._id,
         bookId: marriage._id,
@@ -96,6 +96,19 @@ Meteor.startup( function() {
         bookAuthors: marriage.authors,
         requestedAt: moment(),
         createdAt: moment().subtract(1, 'days')
+      });
+      // borrowed books
+      api.insert('raymondbook2', {
+        ownerId: raymond._id,
+        bookId: pray._id,
+        borrowerId: johann._id,
+        ownerName: raymond.username,
+        ownerEmail: raymond.email,
+        bookTitle: pray.title,
+        bookAuthors: pray.authors,
+        requestedAt: moment().subtract(1, 'days'),
+        borrowedAt: moment(),
+        createdAt: moment().subtract(2, 'days')
       });
     });
   }
