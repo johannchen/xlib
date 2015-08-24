@@ -8,10 +8,17 @@ describe('My Books', function () {
     });
   });
 
-  it("should display johann's books in latest added order", function() {
+  it("should display johann's books with request", function() {
     expect($('#login-name-link')).toContainText('johann');
-    expect($('#mybooks ul > li')).toHaveLength(3);
-    expect($('#mybooks ul > li').first()).toContainText('ESV Bible');
+    expect($('#mybooks-requested ul > li')).toContainText('Four Loves');
+  });
+
+  it("should display johann's lended books", function() {
+    expect($('#mybooks-lended ul > li')).toContainText('Surprised By Joy');
+  });
+
+  it("should display johann's available books", function() {
+    expect($('#mybooks ul > li')).toContainText('ESV Bible');
   });
 
   it("should diplay johann's requested books", function() {

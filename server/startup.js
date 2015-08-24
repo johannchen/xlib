@@ -56,17 +56,8 @@ Meteor.startup( function() {
       var marriage = Fixtures.get(Books, 'marriage');
       var pray = Fixtures.get(Books, 'pray');
 
+      // my available book
       api.insert('johannbook1', {
-        ownerId: johann._id,
-        bookId: love._id,
-        ownerName: johann.username,
-        ownerEmail: johann.email,
-        bookTitle: love.title,
-        bookAuthors: love.authors,
-        createdAt: moment().subtract(1, 'days')
-      });
-
-      api.insert('johannbook2', {
         ownerId: johann._id,
         bookId: bible._id,
         ownerName: johann.username,
@@ -75,17 +66,34 @@ Meteor.startup( function() {
         bookAuthors: bible.authors,
         createdAt: moment()
       });
-
+      // my book got requested
+      api.insert('johannbook2', {
+        ownerId: johann._id,
+        bookId: love._id,
+        borrowerId: raymond._id,
+        ownerName: johann.username,
+        ownerEmail: johann.email,
+        bookTitle: love.title,
+        bookAuthors: love.authors,
+        borrowerName: raymond.username,
+        requestedAt: moment(),
+        createdAt: moment().subtract(1, 'days')
+      });
+      // my lended books
       api.insert('johannbook3', {
         ownerId: johann._id,
         bookId: joy._id,
+        borrowerId: raymond._id,
         ownerName: johann.username,
         ownerEmail: johann.email,
         bookTitle: joy.title,
         bookAuthors: joy.authors,
+        borrowerName: raymond.username,
+        requestedAt: moment().subtract(1, 'days'),
+        borrowedAt: moment(),
         createdAt: moment().subtract(2, 'days')
       });
-      // requested books
+      // my requested books
       api.insert('raymondbook1', {
         ownerId: raymond._id,
         bookId: marriage._id,
@@ -97,7 +105,7 @@ Meteor.startup( function() {
         requestedAt: moment(),
         createdAt: moment().subtract(1, 'days')
       });
-      // borrowed books
+      // my borrowed books
       api.insert('raymondbook2', {
         ownerId: raymond._id,
         bookId: pray._id,

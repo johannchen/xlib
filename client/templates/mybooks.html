@@ -1,5 +1,22 @@
 <template name="mybooks">
   <h2>My Books</h2>
+  <h4>Got Requested</h4>
+  <div id="mybooks-requested">
+    <ul>
+      {{#each mybookRequests}}
+      <li>{{bookTitle}} {{bookAuthors}} {{borrowerName}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <h4>Lended</h4>
+  <div id="mybooks-lended">
+    <ul>
+      {{#each myLendedBooks}}
+      <li>{{bookTitle}} {{bookAuthors}} {{borrowerName}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <h4>Available</h4>
   <div id="mybooks">
     <ul>
       {{#each mybooks}}
