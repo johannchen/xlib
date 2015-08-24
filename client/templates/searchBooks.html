@@ -1,0 +1,14 @@
+<template name="searchBooks">
+  <form>
+    <input type="text" name="query" id="query">
+    <input type="submit" value="Search" id="search">
+  </form>
+  <div id="search-result">
+    <h6>Search Result</h6>
+    <ul>
+      {{#each books}}
+        <li>{{title}} {{authors}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

@@ -5,6 +5,7 @@
   <h1>Welcome to Christian Library</h1>
   {{> loginButtons}}
   {{#if currentUser}}
+    {{> searchBooks}}
     {{> mybooks}}
     {{> requestedBooks}}
     {{> borrowedBooks}}

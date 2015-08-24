@@ -45,6 +45,11 @@ Meteor.startup( function() {
       authors: 'Bill Hybels',
       description: 'Book about prayer'
     });
+    Fixtures.insert(Books, 'discipline', {
+      title: 'Celebration of Discipline',
+      authors: 'Richard Foster',
+      description: 'Spiritual Discipline'
+    });
 
     // MyBooks
     Fixtures.create(MyBooks, function(api) {
@@ -55,6 +60,7 @@ Meteor.startup( function() {
       var joy = Fixtures.get(Books, 'joy');
       var marriage = Fixtures.get(Books, 'marriage');
       var pray = Fixtures.get(Books, 'pray');
+      var discipline = Fixtures.get(Books, 'discipline');
 
       // my available book
       api.insert('johannbook1', {
@@ -117,6 +123,16 @@ Meteor.startup( function() {
         requestedAt: moment().subtract(1, 'days'),
         borrowedAt: moment(),
         createdAt: moment().subtract(2, 'days')
+      });
+      // raymond available book
+      api.insert('raymondbook3', {
+        ownerId: raymond._id,
+        bookId: discipline._id,
+        ownerName: raymond.username,
+        ownerEmail: raymond.email,
+        bookTitle: discipline.title,
+        bookAuthors: discipline.authors,
+        createdAt: moment()
       });
     });
   }
