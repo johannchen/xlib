@@ -4,7 +4,11 @@
   <div id="mybooks-requested">
     <ul>
       {{#each mybookRequests}}
-      <li>{{bookTitle}} {{bookAuthors}} {{borrowerName}}</li>
+      <li>
+        {{bookTitle}} {{bookAuthors}}, Requested by {{borrowerName}}
+        <button id="accept-request">Accept</button>
+        <button id="deny-request">Deny</button>
+      </li>
       {{/each}}
     </ul>
   </div>

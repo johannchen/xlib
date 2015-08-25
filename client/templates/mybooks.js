@@ -21,3 +21,11 @@ Template.mybooks.helpers({
     }, {sort: {borrowedAt: -1}});
   }
 });
+
+Template.mybooks.events({
+  'click #accept-request': function() {
+    MyBooks.update(this._id, {
+      $set: {borrowedAt: moment()}
+    });
+  }
+});

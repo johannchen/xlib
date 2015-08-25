@@ -1,16 +1,29 @@
 describe('My Books', function () {
   // ? what does the done callback do?
   beforeEach(function(done) {
-    Meteor.loginWithPassword('johann@mail.com', 'johann', function(err) {
-      expect(err).toBeUndefined();
-      Tracker.flush();
-      done();
-    });
+    //window.jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+    //setTimeout( function() {
+      Meteor.loginWithPassword('johann@mail.com', 'johann', function(err) {
+        expect(err).toBeUndefined();
+        Tracker.flush();
+        done();
+      });
+    //}, 5000);
+
   });
 
   it("should display johann's books with request", function() {
     expect($('#login-name-link')).toContainText('johann');
     expect($('#mybooks-requested ul > li')).toContainText('Four Loves');
+    expect($('#mybooks-requested ul > li')).toContainText('Requested by raymond');
+    expect($('#accept-request')).toContainText("Accept");
+    expect($('#deny-request')).toContainText("Deny");
+  });
+
+  it("should accept requested book", function() {
+    $('#accept-request').click();
+    expect($('#mybooks-lended ul > li')).toContainText('Four Loves');
+    expect($('#mybooks-requested ul > li')).not.toContainText('Four Loves');
   });
 
   it("should display johann's lended books", function() {

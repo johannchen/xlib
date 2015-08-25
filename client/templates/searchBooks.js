@@ -11,9 +11,10 @@ Template.searchBooks.helpers({
 });
 
 Template.searchBooks.events({
-  'click #search': function(evt) {
-    evt.preventDefault();
-    var query = $('#query').val();
+  'click #search': function(event, template) {
+    event.preventDefault();
+    var query = template.find('#query').value;
     Session.set('query', query);
+    template.find('#query').value = null;
   }
 });
