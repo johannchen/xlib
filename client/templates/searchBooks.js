@@ -1,20 +1,23 @@
-Meteor.subscribe('books');
-Session.setDefault('query', null);
+Session.setDefault('searching', false);
+
+Tracker.autorun(function() {
+   if (Session.get('query')) {
+     var searchHandle = Meteor.subscribe('booksSearch', Session.get('query'));
+     Session.set('searching', ! searchHandle.ready());
+   }
+ });
 
 Template.searchBooks.helpers({
   books: function() {
-    var query = Session.get('query');
+    /*
+    let query = Session.get('query');
     if (query) {
       return Books.find({title: new RegExp(query, 'i')});
     }
-  }
-});
-
-Template.searchBooks.events({
-  'click #search': function(event, template) {
-    event.preventDefault();
-    var query = template.find('#query').value;
-    Session.set('query', query);
-    template.find('#query').value = null;
+    */
+    return GoogleBooks.find();
+  },
+  searching: function() {
+    return Session.get('searching');
   }
 });

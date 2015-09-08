@@ -5,10 +5,9 @@
 # but you can also edit it by hand.
 
 meteor-platform
-sanjo:jasmine
-velocity:html-reporter
 accounts-password
-twbs:bootstrap
 moonco:fixtures
 momentjs:moment
 accounts-ui
+spectrum:material-design-lite
+http

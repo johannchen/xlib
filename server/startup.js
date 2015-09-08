@@ -1,10 +1,11 @@
 Meteor.startup( function() {
   // setup fixtures
   // reset fixtures
-  Fixtures.flush(MyBooks);
-  Fixtures.flush(Books);
-  Fixtures.flush(Meteor.users);
+  // Fixtures.flush(MyBooks);
+  // Fixtures.flush(Books);
+  // Fixtures.flush(Meteor.users);
   // TODO: user fullname
+  /*
   Fixtures.insert(Meteor.users, 'johann', {
     email: 'johann@mail.com',
     username: 'johann',
@@ -132,4 +133,5 @@ Meteor.startup( function() {
       createdAt: moment()
     });
   });
+  */
 });
