@@ -5,17 +5,19 @@ Meteor.startup( function() {
   // Fixtures.flush(Books);
   // Fixtures.flush(Meteor.users);
   // TODO: user fullname
+  if (Meteor.users.find().count() === 0) {
+    Fixtures.insert(Meteor.users, 'johann', {
+      email: 'johann@mail.com',
+      username: 'johann',
+      password: 'johann'
+    }, Accounts.createUser);
+    Fixtures.insert(Meteor.users, 'raymond', {
+      email: 'raymond@mail.com',
+      username: 'raymond',
+      password: 'raymond'
+    }, Accounts.createUser);
+  }
   /*
-  Fixtures.insert(Meteor.users, 'johann', {
-    email: 'johann@mail.com',
-    username: 'johann',
-    password: 'johann'
-  }, Accounts.createUser);
-  Fixtures.insert(Meteor.users, 'raymond', {
-    email: 'raymond@mail.com',
-    username: 'raymond',
-    password: 'raymond'
-  }, Accounts.createUser);
 
   // Books
   Fixtures.insert(Books, 'bible', {

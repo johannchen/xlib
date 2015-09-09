@@ -1,27 +1,23 @@
 <template name="searchBooks">
+  {{#if query}}
   <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-   <div class="mdl-card mdl-cell mdl-cell--12-col">
-     <div class="mdl-card__supporting-text mdl-grid ">
-       <h4 class="mdl-cell mdl-cell--12-col">Search Result</h4>
-       {{#if searching}}
-         <p>Searching</p>
-       {{else}}
-         {{#each books}}
-         <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-           <div class="image"><img src="{{thumb}}"></div>
-         </div>
-         <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-           <h5>{{title}} by {{authors}}</h5>
-           <p>{{{snippet}}}</p>
-           <p>
-             <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-               <i class="material-icons">add</i>
-             </button>
-           </p>
-         </div>
-         {{/each}}
-       {{/if}}
-     </div>
-   </div>
- </section>
+    <div class="mdl-card mdl-cell mdl-cell--12-col">
+      <div class="mdl-card__supporting-text mdl-grid ">
+        <h4 class="mdl-cell mdl-cell--12-col">Search Result "{{query}}"</h4>
+        {{#if searching}}
+        <p>Searching</p>
+        {{else}}
+          {{#each books}}
+            {{> book}}
+        <div class="section__action mdl-cell mdl-cell--1-col">
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored add-book">
+            <i class="material-icons">add</i>
+          </button>
+        </div>
+          {{/each}}
+        {{/if}}
+      </div>
+    </div>
+  </section>
+  {{/if}}
 </template>

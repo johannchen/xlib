@@ -2,6 +2,10 @@ Meteor.publish("mybooks", function() {
   return MyBooks.find({$or: [{ownerId: this.userId}, {borrowerId: this.userId}]});
 });
 
+Meteor.publish("books", function() {
+  return Books.find();
+});
+
 Meteor.publish('booksSearch', function(query) {
   var self = this;
   try {
@@ -15,9 +19,31 @@ Meteor.publish('booksSearch', function(query) {
       var thumb = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
       var title = item.volumeInfo.title;
       var authors = item.volumeInfo.authors;
-      var link = item.volumeInfo.infoLink;
+      var publisher = item.volumeInfo.publisher;
+      var publishedDate = item.volumeInfo.publishedDate;
+      var pages = item.volumeInfo.pageCount;
+      var infoLink = item.volumeInfo.infoLink;
+      var previewLink = item.volumeInfo.previewLink;
+      var isbn10 = "";
+      var isbn13 = "";
+      item.volumeInfo.industryIdentifiers.forEach( function(isbn) {
+        if (isbn.type === "ISBN_10") { isbn10 = isbn.identifier }
+        if (isbn.type === "ISBN_13") { isbn13 = isbn.identifier }
+      });
       var snippet = item.searchInfo && item.searchInfo.textSnippet;
-      var doc = {thumb: thumb, title: title, authors: authors, link: link, snippet: snippet};
+      var doc = {
+        thumb: thumb,
+        title: title,
+        authors: authors,
+        publisher: publisher,
+        publishedDate: publishedDate,
+        pages: pages,
+        infoLink: infoLink,
+        previewLink: previewLink,
+        isbn10: isbn10,
+        isbn13: isbn13,
+        snippet: snippet
+      };
       self.added('googleBooks', Random.id(), doc);
     });
 

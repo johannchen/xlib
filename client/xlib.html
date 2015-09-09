@@ -42,7 +42,9 @@
        {{> loginButtons}}
        </div>
        <div class="mdl-layout-spacer"></div>
-       {{> searchBox}}
+       {{#if currentUser}}
+         {{> searchBox}}
+       {{/if}}
 
      </div>
    </header>
@@ -72,8 +74,9 @@
          </ul>
        </section>
 --}}
-  {{> searchBooks}}
   {{#if currentUser}}
+    {{> searchBooks}}
+    {{> mybooks}}
     {{> borrowedBooks}}
   {{/if}}
        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">

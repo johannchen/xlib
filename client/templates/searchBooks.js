@@ -19,5 +19,16 @@ Template.searchBooks.helpers({
   },
   searching: function() {
     return Session.get('searching');
+  },
+  query: function() {
+    return Session.get('query');
+  }
+
+});
+
+Template.searchBooks.events({
+  'click button.add-book': function() {
+    Meteor.call('addBook', this);
+    Session.set('query', null);
   }
 });
