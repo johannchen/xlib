@@ -2,8 +2,10 @@ Meteor.publish("mybooks", function() {
   return MyBooks.find({$or: [{ownerId: this.userId}, {borrowerId: this.userId}]});
 });
 
-Meteor.publish("books", function() {
-  return Books.find();
+Meteor.publish("books", function(query) {
+  // TODO: query author, isbn
+  // filter books by site (zip, church)?
+  return Books.find({title: new RegExp(query, 'i')});
 });
 
 Meteor.publish('booksSearch', function(query) {

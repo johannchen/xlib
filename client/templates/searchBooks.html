@@ -9,11 +9,9 @@
         {{else}}
           {{#each books}}
             {{> book}}
-        <div class="section__action mdl-cell mdl-cell--1-col">
-          <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored add-book">
-            <i class="material-icons">add</i>
-          </button>
-        </div>
+          {{/each}}
+          {{#each googleBooks}}
+            {{> book}}
           {{/each}}
         {{/if}}
       </div>
