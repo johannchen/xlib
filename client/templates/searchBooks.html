@@ -5,13 +5,13 @@
       <div class="mdl-card__supporting-text mdl-grid ">
         <h4 class="mdl-cell mdl-cell--12-col">Search Result "{{query}}"</h4>
         {{#if searching}}
-        <p>Searching</p>
+        <div class="mdl-spinner mdl-js-spinner is-active"></div>
         {{else}}
           {{#each books}}
             {{> book}}
           {{/each}}
           {{#each googleBooks}}
-            {{> book}}
+            {{> googleBook}}
           {{/each}}
         {{/if}}
       </div>

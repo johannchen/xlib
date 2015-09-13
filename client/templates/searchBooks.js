@@ -23,10 +23,3 @@ Template.searchBooks.helpers({
   }
 
 });
-
-Template.searchBooks.events({
-  'click button.add-book': function() {
-    Meteor.call('addBook', this);
-    Session.set('query', null);
-  }
-});

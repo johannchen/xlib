@@ -1,4 +1,4 @@
-<template name="book">
+<template name="googleBook">
   <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
     <div class="image"><a href="{{previewLink}}"><img src="{{thumb}}"></a></div>
   </div>
@@ -10,12 +10,6 @@
       <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored add-book">
         <i class="material-icons">add</i>
       </button>
-      {{#if owners}}
-        {{#each owners}}
-        <button class="borrow">{{ownerName}}</button>
-        {{/each}}
-      {{/if}}
-
     </p>
   </div>
 </template>

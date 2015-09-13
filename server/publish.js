@@ -1,6 +1,10 @@
 Meteor.publish("mybooks", function() {
   return MyBooks.find({$or: [{ownerId: this.userId}, {borrowerId: this.userId}]});
 });
+// TODO: fitler by bookId
+Meteor.publish("bookOwners", function() {
+  return MyBooks.find({}, {fields: {bookId:1, ownerId:1, ownerName:1}})
+})
 
 Meteor.publish("books", function(query) {
   // TODO: query author, isbn
