@@ -32,7 +32,7 @@ Meteor.publish('booksSearch', function(query) {
       var previewLink = item.volumeInfo.previewLink;
       var isbn10 = "";
       var isbn13 = "";
-      item.volumeInfo.industryIdentifiers.forEach( function(isbn) {
+      item.volumeInfo.industryIdentifiers && item.volumeInfo.industryIdentifiers.forEach( function(isbn) {
         if (isbn.type === "ISBN_10") { isbn10 = isbn.identifier }
         if (isbn.type === "ISBN_13") { isbn13 = isbn.identifier }
       });
@@ -56,6 +56,6 @@ Meteor.publish('booksSearch', function(query) {
     self.ready();
 
   } catch(error) {
-    console.log(error);
+    console.log("booksSearch:" + error);
   }
 });

@@ -9,5 +9,7 @@ accounts-password
 moonco:fixtures
 momentjs:moment
 accounts-ui
-spectrum:material-design-lite
 http
+semantic:ui
+flemay:less-autoprefixer
+semantic:ui-css

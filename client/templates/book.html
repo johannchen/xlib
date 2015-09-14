@@ -1,21 +1,30 @@
 <template name="book">
-  <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-    <div class="image"><a href="{{previewLink}}"><img src="{{thumb}}"></a></div>
-  </div>
-  <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-    <h5><a href="{{infoLink}}">{{title}}</a> by {{authors}}</h5>
-    <p>{{{snippet}}}</p>
-    <p>{{pages}} pages, published on {{publishedDate}} by {{publisher}}, ISBN: {{isbn13}}</p>
-    <p>
-      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored add-book">
-        <i class="material-icons">add</i>
-      </button>
-      {{#if owners}}
-        {{#each owners}}
-        <button class="borrow">{{ownerName}}</button>
-        {{/each}}
-      {{/if}}
-
-    </p>
+  <div class="item">
+    <div class="ui small image">
+      <a href="{{previewLink}}">
+        <img src="{{thumb}}">
+      </a>
+    </div>
+    <div class="content">
+      <a class="header" href="{{infoLink}}">{{title}}</a>
+      <div class="meta">
+        by <a>{{authors}}</a>
+      </div>
+      <div class="description">
+        <p>{{{snippet}}}</p>
+        <p>{{pages}} pages, published on {{publishedDate}} by {{publisher}}, ISBN: {{isbn13}}</p>
+      </div>
+      <div class="extra">
+        <div class="ui right floated primary button">
+          Add to My Books
+          <i class="right chevron icon"></i>
+        </div>
+        {{#if owners}}
+          {{#each owners}}
+          <button class="borrow">{{ownerName}}</button>
+          {{/each}}
+        {{/if}}
+      </div>
+    </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 Session.setDefault('query', null);
 
-Template.searchBox.events({
+Template.menu.events({
   'keypress #search': function(event, template) {
     //event.preventDefault();
     if (event.which === 13) {

@@ -12,6 +12,9 @@ Template.searchBooks.helpers({
   books: function() {
     return Books.find();
   },
+  booksFound: function() {
+    return Books.find().count() > 0;
+  },
   googleBooks: function() {
     return GoogleBooks.find();
   },

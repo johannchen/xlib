@@ -1,21 +1,20 @@
 <template name="searchBooks">
   {{#if query}}
-  <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-    <div class="mdl-card mdl-cell mdl-cell--12-col">
-      <div class="mdl-card__supporting-text mdl-grid ">
-        <h4 class="mdl-cell mdl-cell--12-col">Search Result "{{query}}"</h4>
-        {{#if searching}}
-        <div class="mdl-spinner mdl-js-spinner is-active"></div>
-        {{else}}
-          {{#each books}}
-            {{> book}}
-          {{/each}}
-          {{#each googleBooks}}
-            {{> googleBook}}
-          {{/each}}
-        {{/if}}
-      </div>
+    <h4>Search Result "{{query}}"</h4>
+    {{#if searching}}
+    <p>Searhing...</p>
+    {{else}}
+    <div class="ui relaxed divided items">
+      {{#if booksFound}}
+        {{#each books}}
+          {{> book}}
+        {{/each}}
+      {{else}}
+        {{#each googleBooks}}
+          {{> googleBook}}
+        {{/each}}
+      {{/if}}
     </div>
-  </section>
+    {{/if}}
   {{/if}}
 </template>

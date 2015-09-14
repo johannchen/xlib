@@ -1,0 +1,28 @@
+<template name="menu">
+  <div class="ui menu">
+    <div class="header item">
+      Christian Library
+    </div>
+    {{#if currentUser}}
+    <a class="item">
+      My Books
+    </a>
+    <a class="item">
+      Friends
+    </a>
+    {{/if}}
+    <div class="right menu">
+      {{#if currentUser}}
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Title, Author" id="search">
+          <i class="search link icon"></i>
+        </div>
+      </div>
+      {{/if}}
+      <a class="ui item">
+        {{> loginButtons}}
+      </a>
+    </div>
+  </div>
+</template>
