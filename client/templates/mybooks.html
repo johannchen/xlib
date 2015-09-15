@@ -1,31 +1,26 @@
 <template name="mybooks">
-  <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-    <div class="mdl-card mdl-cell mdl-cell--12-col">
-      <div class="mdl-card__supporting-text mdl-grid ">
-        <h4 class="mdl-cell mdl-cell--12-col">My Books</h4>
-        <table class="mdl-data-table mdl-js-data-table">
-          <thead>
-            <tr>
-              <th class="mdl-data-table__cell--non-numeric">Cover</th>
-              <th class="mdl-data-table__cell--non-numeric">Title</th>
-              <th class="mdl-data-table__cell--non-numeric">Authors</th>
-              <th class="mdl-data-table__cell--non-numeric">Added Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each mybooks}}
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric"><img src="{{thumb}}"></td>
-              <td class="mdl-data-table__cell--non-numeric">{{title}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{authors}}</td>
-              <td class="mdl-data-table__cell--non-numeric">{{dateFormat createdAt}}</td>
-            </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+  <h4>My Books</h4>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Authors</th>
+        <th>Added Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each mybooks}}
+        <tr>
+          <td><img src="{{thumb}}"></td>
+          <td>{{title}}</td>
+          <td>{{authors}}</td>
+          <td>{{dateFormat createdAt}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
   {{!--
     <h2>My Books</h2>
     <h4>Got Requested</h4>

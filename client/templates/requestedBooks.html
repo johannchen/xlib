@@ -1,10 +1,23 @@
 <template name="requestedBooks">
-  <h2>Requested Books</h2>
-  <div id="requested-books">
-    <ul>
+  <h4>My Requested Books</h4>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Owner</th>
+        <th>Requested Date</th>
+      </tr>
+    </thead>
+    <tbody>
       {{#each requestedBooks}}
-      <li>{{bookTitle}} {{bookAuthors}} {{ownerName}}</li>
+        <tr>
+          <td><img src="{{thumb}}"></td>
+          <td>{{title}}<br>by {{authors}}</td>
+          <td>{{ownerName}}</td>
+          <td>{{dateFormat requestedAt}}</td>
+        </tr>
       {{/each}}
-    </ul>
-  </div>
+    </tbody>
+  </table>
 </template>

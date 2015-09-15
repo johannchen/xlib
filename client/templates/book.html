@@ -14,16 +14,26 @@
         <p>{{{snippet}}}</p>
         <p>{{pages}} pages, published on {{publishedDate}} by {{publisher}}, ISBN: {{isbn13}}</p>
       </div>
-      <div class="extra">
-        <div class="ui right floated primary button">
-          Add to My Books
-          <i class="right chevron icon"></i>
-        </div>
+      <div class="ui two column stackable grid">
+        <div class="column">
         {{#if owners}}
-          {{#each owners}}
-          <button class="borrow">{{ownerName}}</button>
-          {{/each}}
+          <div class="ui action input">
+            <select class="ui compact selection dropdown owner">
+              <option value="">Owner</option>
+              {{#each owners}}
+              <option value="{{ownerId}}">{{ownerName}}</option>
+              {{/each}}
+            </select>
+            <div type="submit" class="ui button request-book">Request Book</div>
+          </div>
         {{/if}}
+        </div>
+        <div class="column">
+          <div class="ui right floated primary button">
+            Add to My Books
+            <i class="right chevron icon"></i>
+          </div>
+        </div>
       </div>
     </div>
   </div>
