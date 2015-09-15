@@ -1,4 +1,63 @@
 <template name="mybooks">
+  <h4>My Books Got Rquested</h4>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Requestor</th>
+        <th>Requested Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each mybookRequests}}
+        <tr>
+          <td><img src="{{thumb}}"></td>
+          <td>
+            {{title}} <br>
+            by {{authors}}
+          </td>
+          <td>{{borrowerName}}</td>
+          <td>{{dateFormat requestedAt}}</td>
+          <td>
+            <button class="ui primary button accept-request">Accept</button><br>
+            <button class="ui red button deny-request">Deny</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <h4>My Lended Books</h4>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Borrower</th>
+        <th>Borrowed Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each myLendedBooks}}
+        <tr>
+          <td><img src="{{thumb}}"></td>
+          <td>
+            {{title}} <br>
+            by {{authors}}
+          </td>
+          <td>{{borrowerName}}</td>
+          <td>{{dateFormat borrowedAt}}</td>
+          <td>
+            <button class="ui primary button returned">Returned</button><br>
+            <button class="ui red button lost">Lost</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
   <h4>My Books</h4>
   <table class="ui celled table">
     <thead>
@@ -20,36 +79,4 @@
       {{/each}}
     </tbody>
   </table>
-
-  {{!--
-    <h2>My Books</h2>
-    <h4>Got Requested</h4>
-    <div id="mybooks-requested">
-      <ul>
-        {{#each mybookRequests}}
-        <li>
-          {{bookTitle}} {{bookAuthors}}, Requested by {{borrowerName}}
-          <button id="accept-request">Accept</button>
-          <button id="deny-request">Deny</button>
-        </li>
-        {{/each}}
-      </ul>
-    </div>
-    <h4>Lended</h4>
-    <div id="mybooks-lended">
-      <ul>
-        {{#each myLendedBooks}}
-        <li>{{bookTitle}} {{bookAuthors}} {{borrowerName}}</li>
-        {{/each}}
-      </ul>
-    </div>
-    <h4>Available</h4>
-    <div id="mybooks">
-      <ul>
-        {{#each mybooks}}
-        <li>{{bookTitle}} {{bookAuthors}}</li>
-        {{/each}}
-      </ul>
-    </div>
-    --}}
-  </template>
+</template>

@@ -23,9 +23,10 @@ Template.mybooks.helpers({
 });
 
 Template.mybooks.events({
-  'click #accept-request': function() {
-    MyBooks.update(this._id, {
-      $set: {borrowedAt: moment()}
-    });
+  'click button.accept-request': function() {
+    Meteor.call('acceptRequest', this._id);
+  },
+  'click button.deny-request': function() {
+    Meteor.call('denyRequest', this._id);
   }
 });
