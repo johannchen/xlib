@@ -6,3 +6,9 @@ Template.mybooksLended.helpers({
     }, {sort: {borrowedAt: -1}});
   }
 });
+
+Template.mybooksLended.events({
+  'click button.returned': function() {
+    Meteor.call('bookReturned', this);
+  }
+});

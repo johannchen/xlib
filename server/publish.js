@@ -1,3 +1,7 @@
+Meteor.publish("returnedBooks", function() {
+  return ReturnedBooks.find({ownerId: this.userId});
+});
+
 Meteor.publish("mybooks", function() {
   return MyBooks.find({$or: [{ownerId: this.userId}, {borrowerId: this.userId}]});
 });

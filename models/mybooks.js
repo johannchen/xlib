@@ -17,7 +17,7 @@ Meteor.methods({
     MyBooks.update(id, {
       $set: {borrowedAt: Date.now()}
     });
-  },  
+  },
   denyRequest: function(id) {
     MyBooks.update(id, {
       $unset: {requestedAt:"", borrowerId:"", borrowerName:""}
