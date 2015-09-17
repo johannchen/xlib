@@ -1,0 +1,31 @@
+<template name="mybooksLended">
+  <h4>My Lended Books</h4>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Borrower</th>
+        <th>Borrowed Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each myLendedBooks}}
+        <tr>
+          <td><img src="{{thumb}}"></td>
+          <td>
+            {{title}} <br>
+            by {{authors}}
+          </td>
+          <td>{{borrowerName}}</td>
+          <td>{{dateFormat borrowedAt}}</td>
+          <td>
+            <button class="ui primary button returned">Returned</button><br>
+            <button class="ui red button lost">Lost</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

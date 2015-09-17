@@ -1,0 +1,31 @@
+<template name="mybooksRequested">
+  <h4>My Books Got Rquested</h4>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Requestor</th>
+        <th>Requested Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each mybookRequests}}
+        <tr>
+          <td><img src="{{thumb}}"></td>
+          <td>
+            {{title}} <br>
+            by {{authors}}
+          </td>
+          <td>{{borrowerName}}</td>
+          <td>{{dateFormat requestedAt}}</td>
+          <td>
+            <button class="ui primary button accept-request">Accept</button><br>
+            <button class="ui red button deny-request">Deny</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

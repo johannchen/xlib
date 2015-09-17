@@ -3,11 +3,14 @@
     <div class="header item">
       Christian Library
     </div>
-    {{#if currentUser}}
     <a class="item">
+        {{> loginButtons}}
+    </a>
+    {{#if currentUser}}
+    <a class="item user-item" href="/mybooks">
       My Books
     </a>
-    <a class="item">
+    <a class="item user-item">
       Friends
     </a>
     {{/if}}
@@ -20,9 +23,6 @@
         </div>
       </div>
       {{/if}}
-      <a class="ui item">
-        {{> loginButtons}}
-      </a>
     </div>
   </div>
 </template>
