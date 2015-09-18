@@ -2,8 +2,6 @@ MyBooks = new Mongo.Collection("mybooks");
 
 Meteor.methods({
   addBook: function(book) {
-    //TODO: debug screwtape
-    console.log(book);
     MyBooks.insert({
       bookId: book._id,
       ownerId: Meteor.userId(),

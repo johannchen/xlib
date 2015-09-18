@@ -13,8 +13,14 @@ Template.book.events({
     }
   },
   'click .add-book': function() {
-    console.log(this);
-    Meteor.call('addBook', this);
+    var self = this;
+    var book = {
+      _id: self._id,
+      title: self.title,
+      authors: self.authors,
+      thumb: self.thumb
+    };
+    Meteor.call('addBook', book);
     Session.set('query', null);
     FlowRouter.go('/mybooks');
   }

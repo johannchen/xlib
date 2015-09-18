@@ -1,5 +1,5 @@
 Template.googleBook.events({
-  'click .add-book': function() {
+  'click .add-google-book': function() {
     Meteor.call('addGoogleBook', this);
     Session.set('query', null);
     FlowRouter.go('/mybooks');
