@@ -11,5 +11,11 @@ Template.book.events({
     if (ownerId) {
       Meteor.call('requestBook', this._id, ownerId)
     }
+  },
+  'click .add-book': function() {
+    console.log(this);
+    Meteor.call('addBook', this);
+    Session.set('query', null);
+    FlowRouter.go('/mybooks');
   }
 });

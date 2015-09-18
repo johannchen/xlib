@@ -7,13 +7,14 @@ Meteor.publish("mybooks", function() {
 });
 // TODO: fitler by bookId
 Meteor.publish("bookOwners", function() {
-  return MyBooks.find({}, {fields: {bookId:1, ownerId:1, ownerName:1}})
-})
+  return MyBooks.find({}, {fields: {bookId:1, ownerId:1, ownerName:1}});
+});
 
 Meteor.publish("books", function(query) {
   // TODO: query author, isbn
   // filter books by site (zip, church)?
-  return Books.find({title: new RegExp(query, 'i')});
+  var q = new RegExp(query, 'i');
+  return Books.find({$or: [{title: q}, {authors: q}]});
 });
 
 Meteor.publish('booksSearch', function(query) {

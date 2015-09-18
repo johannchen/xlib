@@ -8,7 +8,7 @@ Books = new Mongo.Collection('books', {
 });
 
 Meteor.methods({
-  addBook: function(book) {
+  addGoogleBook: function(book) {
     // TODO: avoid duplicate in Books
     Books.insert(book, function(err, id) {
       MyBooks.insert({

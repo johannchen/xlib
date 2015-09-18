@@ -8,3 +8,8 @@ Template.mybooks.helpers({
     }, {sort: {createdAt: -1}});
   }
 });
+Template.mybooks.events({
+  'click button.remove': function() {
+    Meteor.call('removeBook', this._id);
+  }
+});

@@ -6,6 +6,7 @@
         <th>Title</th>
         <th>Authors</th>
         <th>Added Date</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +16,9 @@
           <td>{{title}}</td>
           <td>{{authors}}</td>
           <td>{{dateFormat createdAt}}</td>
+          <td>
+            <button class="ui red button remove">Remove</button>
+          </td>
         </tr>
       {{/each}}
     </tbody>
