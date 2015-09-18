@@ -2,6 +2,12 @@ Template.book.onRendered(function() {
   this.$('.ui.dropdown').dropdown();
 });
 
+Template.book.helpers({
+  ownerFound: function() {
+    return this.owners.count() > 0;
+  }
+});
+
 Template.book.events({
   'click .request-book': function(event, template) {
     event.preventDefault();

@@ -5,15 +5,13 @@
     <p>Searhing...</p>
     {{else}}
     <div class="ui relaxed divided items">
-      {{#if booksFound}}
-        {{#each books}}
-          {{> book}}
-        {{/each}}
+      {{#each books}}
+        {{> book}}
       {{else}}
         {{#each googleBooks}}
           {{> googleBook}}
         {{/each}}
-      {{/if}}
+      {{/each}}
     </div>
     {{/if}}
   {{/if}}
