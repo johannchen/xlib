@@ -1,4 +1,13 @@
 Session.setDefault('query', null);
+/*
+Template.submenu.onRendered(function() {
+  var path = FlowRouter.current().path;
+  this.$('.user-item').each(function () {
+    if (path.indexOf($(this).attr('href')) )
+      $(this).addClass('active');
+  });
+});
+*/
 
 Template.menu.events({
   'keypress #search': function(event, template) {

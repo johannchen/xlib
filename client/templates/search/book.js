@@ -15,7 +15,8 @@ Template.book.events({
     var ownerId = template.find('select').value;
     console.log("ownerId: " + ownerId);
     if (ownerId) {
-      Meteor.call('requestBook', this._id, ownerId)
+      Meteor.call('requestBook', this._id, ownerId);
+      FlowRouter.go('/mybooks/requested');
     }
   },
   'click .add-book': function() {

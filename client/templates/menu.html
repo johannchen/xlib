@@ -7,10 +7,10 @@
         {{> loginButtons}}
     </a>
     {{#if currentUser}}
-    <a class="item user-item" href="/mybooks">
+    <a class="item user-item {{isActivePath regex='mybooks'}}" href="/mybooks">
       My Books
     </a>
-    <a class="item user-item">
+    <a class="item user-item" href="/friends">
       Friends
     </a>
     {{/if}}

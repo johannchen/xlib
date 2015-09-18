@@ -1,18 +1,18 @@
 <template name="submenu">
   <div class="ui secondary pointing menu">
-    <a class="active item" href="/mybooks">
+    <a class="item {{isActiveRoute 'mybooks'}}" href="/mybooks">
       Available
     </a>
-    <a class="item" href="/mybooks/pending">
+    <a class="item {{isActiveRoute 'pending'}}" href="/mybooks/pending">
       Pending
     </a>
-    <a class="item" href="/mybooks/lended">
+    <a class="item {{isActiveRoute 'lended'}}" href="/mybooks/lended">
       Lended
     </a>
-    <a class="item" href="/mybooks/requested">
+    <a class="item {{isActiveRoute 'requested'}}" href="/mybooks/requested">
       Requested
     </a>
-    <a class="item" href="/mybooks/borrowed">
+    <a class="item {{isActiveRoute 'borrowed'}}" href="/mybooks/borrowed">
       Borrowed
     </a>
   </div>
